@@ -1,17 +1,17 @@
-# 🤖 Robot Medical - Real-Time Medical Monitoring System
+# Robot Medical - Real-Time Medical Monitoring System
 
 Modern web application for real-time monitoring of patient medical parameters.
 
-## 🚀 Features
+## Features
 
-- **Real-time dashboard** with medical metrics
-- **Patient management** with RFID tracking
-- **Parameter monitoring** (temperature, heart rate, SpO2, weight)
-- **Automatic alerts** for critical values
-- **Responsive and accessible** interface
-- **Secure authentication**
+- Real-time dashboard with medical metrics
+- Patient management with RFID tracking
+- Parameter monitoring (temperature, heart rate, SpO2, weight)
+- Automatic alerts for critical values
+- Responsive and accessible interface
+- Secure authentication
 
-## 🛠️ Technologies
+## Technologies
 
 - **Frontend**: React 18, Vite, Tailwind CSS, Lucide Icons
 - **Backend**: PHP 8+, MySQL
@@ -19,14 +19,14 @@ Modern web application for real-time monitoring of patient medical parameters.
 - **Security**: JWT, CORS, Security Headers
 - **Performance**: useReducer, useMemo, Optimized Polling
 
-## 📋 Prerequisites
+## Prerequisites
 
 - Node.js 18+
 - PHP 8.0+
 - MySQL 8.0+
 - Web server (Apache/Nginx)
 
-## 🚀 Installation & Setup
+## Installation & Setup
 
 ### 1. Database Configuration
 
@@ -97,7 +97,7 @@ npm run build
 npm run preview
 ```
 
-## 🔧 Configuration
+## Configuration
 
 ### Environment Variables
 
@@ -111,83 +111,79 @@ npm run preview
 
 ### Ports Used
 
-- **Frontend**: 5173 (development)
-- **Backend**: 8000 (PHP server)
-- **API Server**: 3001 (Express server)
-- **Base de données**: 3306 (MySQL)
+- Frontend: 5173 (development)
+- Backend: 8000 (PHP server)
+- API Server: 3001 (Express server)
+- Database: 3306 (MySQL)
 
-## 🎯 Utilisation
+## Usage
 
-1. **Connexion**: Accédez à `http://localhost:5173`
-2. **Tableau de bord**: Visualisez les métriques en temps réel
-3. **Patients**: Gérez la liste des patients
-4. **Mesures**: Consultez les mesures médicales
-5. **Alertes**: Surveillez les valeurs critiques
+1. Access the application at `http://localhost:5173`
+2. View real-time metrics on the dashboard
+3. Manage patient records
+4. Monitor medical measurements
+5. Check critical value alerts
 
-## 🔒 Sécurité
+## Security
 
-- Authentification JWT
-- Headers de sécurité CORS
-- Validation des données
-- Protection contre les injections SQL
-- Rate limiting (à implémenter)
+- JWT authentication
+- CORS security headers
+- Data validation
+- SQL injection protection
+- Rate limiting (to be implemented)
 
-## 📱 Responsive Design
+## Responsive Design
 
-L'application est optimisée pour:
-- **Desktop** (1024px+)
-- **Tablette** (768px - 1023px)
-- **Mobile** (< 768px)
+The application is optimized for:
+- Desktop (1024px+)
+- Tablet (768px - 1023px)
+- Mobile (< 768px)
 
-## 🐛 Dépannage
+## Troubleshooting
 
-### Problèmes Courants
+### Common Issues
 
-1. **Erreur CORS**
-   - Vérifier que le backend écoute sur le bon port
-   - Confirmer les headers CORS dans `backend/config/cors.php`
+1. **CORS Error**
+   - Verify backend is listening on the correct port
+   - Check CORS headers in `backend/config/cors.php`
 
-2. **Connexion MySQL échoue**
-   - Vérifier que l'utilisateur `dark-linux` existe
-   - Confirmer les permissions sur la base `robot_medical`
+2. **MySQL Connection Failed**
+   - Verify `dark-linux` user exists
+   - Confirm permissions on `robot_medical` database
 
-3. **Frontend ne se charge pas**
-   - Vérifier que Node.js 18+ est installé
-   - Exécuter `npm install` pour installer les dépendances
+3. **Frontend Won't Load**
+   - Verify Node.js 18+ is installed
+   - Run `npm install` to install dependencies
 
 ### Logs
 
-- **Frontend**: Console du navigateur
-- **Backend**: Fichier défini dans `LOG_FILE`
-- **Base de données**: Logs MySQL
+- Frontend: Browser console
+- Backend: File specified in `LOG_FILE`
+- Database: MySQL logs
 
-## 📊 Monitoring
+## Monitoring
 
-L'application inclut:
-- Métriques de performance
-- Logs structurés
-- Alertes automatiques
-- Squelettes de chargement
+The application includes:
+- Performance metrics
+- Structured logging
+- Automatic alerts
+- Loading skeletons
 
-## 🤝 Contribution
+## Contributing
 
-1. Fork le projet
-2. Créer une branche feature (`git checkout -b feature/AmazingFeature`)
-3. Commit les changements (`git commit -m 'Add AmazingFeature'`)
-4. Push sur la branche (`git push origin feature/AmazingFeature`)
-5. Ouvrir une Pull Request
+1. Fork the project
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## 📄 Licence
+## License
 
-Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
+This project is under the MIT License. See the `LICENSE` file for details.
 
-## 📞 Support
+## Support
 
-Pour toute question ou problème:
-1. Consulter la documentation
-2. Vérifier les logs d'erreur
-3. Ouvrir une issue sur GitHub
-
----
-
-**Développé avec ❤️ pour la surveillance médicale moderne**
+For questions or issues:
+1. Check the documentation
+2. Review error logs
+3. Open an issue on GitHub
