@@ -66,9 +66,8 @@ Frontend will be available at `http://localhost:5173`
 ### 4. Backend Configuration
 
 ```bash
-# Start PHP built-in server
-cd backend
-php -S localhost:8000
+# Start PHP built-in server (from root directory)
+php -S localhost:8000 -t backend
 ```
 
 Backend will be available at `http://localhost:8000`
