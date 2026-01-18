@@ -67,7 +67,7 @@ Frontend will be available at `http://localhost:5173`
 
 ```bash
 # Start PHP built-in server (from root directory)
-php -S localhost:8000 -t backend
+php -S 0.0.0.0:8000
 ```
 
 Backend will be available at `http://localhost:8000`
