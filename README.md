@@ -1,103 +1,120 @@
-# 🤖 Robot Médical - Système de Surveillance Médicale
+# 🤖 Robot Medical - Real-Time Medical Monitoring System
 
-Application web moderne pour la surveillance des paramètres médicaux des patients en temps réel.
+Modern web application for real-time monitoring of patient medical parameters.
 
-## 🚀 Fonctionnalités
+## 🚀 Features
 
-- **Tableau de bord temps réel** avec métriques médicales
-- **Gestion des patients** avec suivi RFID
-- **Surveillance des paramètres** (température, rythme cardiaque, SpO2, poids)
-- **Alertes automatiques** pour valeurs critiques
-- **Interface responsive** et accessible
-- **Authentification sécurisée**
+- **Real-time dashboard** with medical metrics
+- **Patient management** with RFID tracking
+- **Parameter monitoring** (temperature, heart rate, SpO2, weight)
+- **Automatic alerts** for critical values
+- **Responsive and accessible** interface
+- **Secure authentication**
 
 ## 🛠️ Technologies
 
 - **Frontend**: React 18, Vite, Tailwind CSS, Lucide Icons
 - **Backend**: PHP 8+, MySQL
-- **Sécurité**: JWT, CORS, Headers de sécurité
-- **Performance**: useReducer, useMemo, Polling optimisé
+- **API Server**: Node.js/Express (ESP32 data collection)
+- **Security**: JWT, CORS, Security Headers
+- **Performance**: useReducer, useMemo, Optimized Polling
 
-## 📋 Prérequis
+## 📋 Prerequisites
 
 - Node.js 18+
 - PHP 8.0+
 - MySQL 8.0+
-- Serveur web (Apache/Nginx)
+- Web server (Apache/Nginx)
 
-## 🚀 Installation et Lancement
+## 🚀 Installation & Setup
 
-### 1. Configuration de la Base de Données
+### 1. Database Configuration
 
 ```bash
-# Créer la base de données
+# Create the database
 sudo mysql -e "CREATE DATABASE IF NOT EXISTS robot_medical;"
 
-# Créer l'utilisateur (déjà fait)
+# Create the user
 sudo mysql -e "CREATE USER IF NOT EXISTS 'dark-linux'@'localhost'; GRANT ALL PRIVILEGES ON robot_medical.* TO 'dark-linux'@'localhost'; FLUSH PRIVILEGES;"
 
-# Importer le schéma
+# Import the schema
 sudo mysql robot_medical < backend/databases/robot_medical.sql
 ```
 
-### 2. Configuration de l'Environnement
+### 2. Environment Setup
 
 ```bash
-# Copier le fichier d'environnement
+# Copy environment file
 cp .env.example .env
 
-# Modifier les variables selon votre configuration
+# Edit configuration
 nano .env
 ```
 
-### 3. Installation du Frontend
+### 3. Frontend Installation
 
 ```bash
-# Installer les dépendances
+# Install dependencies
 npm install
 
-# Lancer le serveur de développement
+# Start development server
 npm run dev
 ```
 
-Le frontend sera disponible sur `http://localhost:5173`
+Frontend will be available at `http://localhost:5173`
 
-### 4. Configuration du Backend
+### 4. Backend Configuration
 
 ```bash
-# Démarrer le serveur PHP intégré
+# Start PHP built-in server
 cd backend
 php -S localhost:8000
 ```
 
-Le backend sera disponible sur `http://localhost:8000`
+Backend will be available at `http://localhost:8000`
 
-### 5. Lancement Complet (Production)
+### 5. API Server (ESP32 Data Collection)
 
 ```bash
-# Build de l'application
+# Navigate to API server
+cd robot-api
+
+# Install dependencies
+npm install
+
+# Start the server
+npm start
+```
+
+API Server will be available at `http://localhost:3001`
+
+### 6. Full Production Build
+
+```bash
+# Build the application
 npm run build
 
-# Servir les fichiers statiques
+# Preview production build
 npm run preview
 ```
 
 ## 🔧 Configuration
 
-### Variables d'Environnement
+### Environment Variables
 
-| Variable | Description | Valeur par défaut |
-|----------|-------------|-------------------|
-| `VITE_API_BASE_URL` | URL du backend | `http://localhost:8000` |
-| `DB_HOST` | Hôte MySQL | `localhost` |
-| `DB_NAME` | Nom de la base | `robot_medical` |
-| `DB_USER` | Utilisateur MySQL | `dark-linux` |
-| `JWT_SECRET` | Clé secrète JWT | (à définir) |
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `VITE_API_BASE_URL` | Backend URL | `http://localhost:8000` |
+| `DB_HOST` | MySQL host | `localhost` |
+| `DB_NAME` | Database name | `robot_medical` |
+| `DB_USER` | MySQL user | `dark-linux` |
+| `JWT_SECRET` | JWT secret key | (to be defined) |
 
-### Ports Utilisés
+### Ports Used
 
-- **Frontend**: 5173 (développement)
-- **Backend**: 8000 (serveur PHP)
+- **Frontend**: 5173 (development)
+- **Backend**: 8000 (PHP server)
+- **API Server**: 3001 (Express server)
 - **Base de données**: 3306 (MySQL)
 
 ## 🎯 Utilisation
