@@ -26,10 +26,26 @@ Modern web application for real-time monitoring of patient medical parameters.
 - MySQL 8.0+
 - Web server (Apache/Nginx)
 
+## Platform-Specific Notes
+
+### Windows
+
+For Windows users, ensure the following are installed:
+- Download PHP from [php.net](https://www.php.net/downloads)
+- Download MySQL from [mysql.com](https://dev.mysql.com/downloads/)
+- Use `cmd.exe` or PowerShell for commands
+- Replace `sudo` with Administrator privileges (right-click and "Run as administrator")
+- Use backslashes `\` for file paths or double slashes `\\`
+
+### macOS / Linux
+
+Standard Unix commands apply. Use `sudo` for system-level operations.
+
 ## Installation & Setup
 
 ### 1. Database Configuration
 
+**Linux/macOS:**
 ```bash
 # Create the database
 sudo mysql -e "CREATE DATABASE IF NOT EXISTS robot_medical;"
@@ -39,6 +55,24 @@ sudo mysql -e "CREATE USER IF NOT EXISTS 'dark-linux'@'localhost'; GRANT ALL PRI
 
 # Import the schema
 sudo mysql robot_medical < backend/databases/robot_medical.sql
+```
+
+**Windows (PowerShell or CMD as Administrator):**
+```powershell
+# Open MySQL and run commands
+mysql -u root -p
+
+# In MySQL prompt:
+CREATE DATABASE IF NOT EXISTS robot_medical;
+CREATE USER IF NOT EXISTS 'dark-linux'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON robot_medical.* TO 'dark-linux'@'localhost';
+FLUSH PRIVILEGES;
+
+# Exit MySQL
+EXIT;
+
+# Import the schema
+mysql -u dark-linux -p robot_medical < backend\databases\robot_medical.sql
 ```
 
 ### 2. Environment Setup
@@ -65,8 +99,18 @@ Frontend will be available at `http://localhost:5173`
 
 ### 4. Backend Configuration
 
+**Linux/macOS:**
 ```bash
 # Start PHP built-in server (from root directory)
+php -S 0.0.0.0:8000
+```
+
+**Windows (PowerShell or CMD):**
+```powershell
+# Navigate to root directory if not already there
+cd path\to\robot-medical
+
+# Start PHP built-in server
 php -S 0.0.0.0:8000
 ```
 
