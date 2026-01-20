@@ -41,6 +41,93 @@ For Windows users, ensure the following are installed:
 
 Standard Unix commands apply. Use `sudo` for system-level operations.
 
+## Quick Start with XAMPP
+
+If you're using XAMPP (includes Apache, PHP, and MySQL), follow these simplified steps:
+
+### 1. Start XAMPP Services
+
+1. Open XAMPP Control Panel
+2. Start: Apache, MySQL, and PHP (if available)
+3. Open MySQL Admin to configure the database
+
+### 2. Setup Database in XAMPP
+
+```sql
+-- In phpMyAdmin or MySQL command line
+CREATE DATABASE robot_medical;
+CREATE USER 'dark-linux'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON robot_medical.* TO 'dark-linux'@'localhost';
+FLUSH PRIVILEGES;
+
+-- Import the schema
+-- Upload backend/databases/robot_medical.sql through phpMyAdmin
+-- Or use: mysql -u dark-linux -p robot_medical < backend/databases/robot_medical.sql
+```
+
+### 3. Configure .env for XAMPP
+
+```bash
+cp .env.example .env
+```
+
+Edit `.env`:
+```
+VITE_API_BASE_URL=http://localhost:8000
+DB_HOST=localhost
+DB_USER=dark-linux
+DB_PASS=password
+DB_NAME=robot_medical
+```
+
+### 4. Start Everything
+
+**Option A - Separate terminals:**
+
+Terminal 1 - Frontend:
+```bash
+npm install
+npm run dev
+```
+
+Terminal 2 - Backend (if not using Apache):
+```bash
+php -S 0.0.0.0:8000
+```
+
+Terminal 3 - API Server:
+```bash
+cd robot-api
+npm install
+npm start
+```
+
+**Option B - All in one npm command:**
+
+Update `package.json` scripts to:
+```json
+{
+  "scripts": {
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\" \"npm run dev:api\"",
+    "dev:frontend": "vite",
+    "dev:backend": "php -S 0.0.0.0:8000",
+    "dev:api": "cd robot-api && npm start"
+  }
+}
+```
+
+Then install concurrently:
+```bash
+npm install --save-dev concurrently
+```
+
+And run:
+```bash
+npm run dev
+```
+
+This will start all three services in parallel.
+
 ## Installation & Setup
 
 ### 1. Database Configuration
